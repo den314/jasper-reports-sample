@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BeanShellReport" language="bsh" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="fbe18c0b-79a3-419a-a78d-b35dd2d803f2">
+    <parameter name="title" class="java.lang.String"/>
+    <parameter name="minSalary" class="java.lang.Double"/>
+    <parameter name="condition" class="java.lang.String">
+        <defaultValueExpression><![CDATA["1 = 1"]]></defaultValueExpression>
+    </parameter>
+    <queryString>
+        <![CDATA[SELECT * FROM EMPLOYEE WHERE SALARY >= $P{minSalary} AND $P!{condition}]]>
+    </queryString>
+    <field name="FIRST_NAME" class="java.lang.String"/>
+    <field name="LAST_NAME" class="java.lang.String"/>
+    <field name="SALARY" class="java.lang.Double"/>
+    <field name="ID" class="java.lang.Integer"/>
+    <title>
+        <band height="47" splitType="Stretch">
+            <textField>
+                <reportElement x="65" y="15" width="100" height="20" uuid="cc83c7ff-3690-4d86-9d92-36b8f8f6effc"/>
+                <textElement verticalAlignment="Bottom"/>
+                <textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="3" y="11" width="58" height="24" uuid="289d6d9c-d47f-4d70-b4e2-149218216cf3"/>
+                <textElement textAlignment="Right" verticalAlignment="Bottom">
+                    <font size="14"/>
+                </textElement>
+                <text><![CDATA[Title is:]]></text>
+            </staticText>
+            <line>
+                <reportElement x="-10" y="39" width="520" height="1" uuid="8e48c014-bcb8-49e4-806e-b601b62320d0">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+            </line>
+        </band>
+    </title>
+    <detail>
+        <band height="104" splitType="Stretch">
+            <textField>
+                <reportElement x="62" y="11" width="100" height="20" uuid="7a0e131d-fb4c-4bce-a943-6f534c26a786"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{FIRST_NAME}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="62" y="30" width="100" height="20" uuid="ef655f96-0c31-427c-9f25-50afa6192c91"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{LAST_NAME}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="62" y="51" width="100" height="20" uuid="50420692-72b3-4294-b123-dbd1c26438d0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{SALARY}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="12" width="61" height="18" uuid="f36c05fc-5c1b-4d67-bbb2-2583194ecf21"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[First name:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="32" width="61" height="18" uuid="3097ec12-ae72-4d60-ace9-42076f6b5dc9"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Last name:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="52" width="61" height="18" uuid="4622782e-a9bd-485d-afec-2838c4a47193"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Salary:]]></text>
+            </staticText>
+        </band>
+    </detail>
+</jasperReport>
